@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ep13tl8c6dtn"]
+
+[ext_resource type="PackedScene" uid="uid://dk2eituhsjbg0" path="res://Entities/Spawners/Spawner.tscn" id="1_yffkf"]
+[ext_resource type="PackedScene" uid="uid://bqshfpoiyraa6" path="res://Entities/Enemies/Enemy.tscn" id="2_wesvg"]
+
+[sub_resource type="Curve2D" id="Curve2D_sw380"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 95, 265, 0, 0, 0, 0, 349, 267, 0, 0, 0, 0, 684, 271, 0, 0, 0, 0, 694, 176, 0, 0, 0, 0, 772, 172, 0, 0, 0, 0, 772, 321, 0, 0, 0, 0, 880, 317, 0, 0, 0, 0, 871, 262, 0, 0, 0, 0, 934, 266, 0, 0, 0, 0, 997, 264)
+}
+point_count = 10
+
+[node name="Level" type="Node2D" unique_id=1614416625]
+
+[node name="Path" type="Path2D" parent="." unique_id=2064399698]
+curve = SubResource("Curve2D_sw380")
+
+[node name="Spawner" parent="." unique_id=346530814 node_paths=PackedStringArray("ConnectedPath") instance=ExtResource("1_yffkf")]
+position = Vector2(94, 265)
+EnemyScene = ExtResource("2_wesvg")
+ConnectedPath = NodePath("../Path")

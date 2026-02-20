@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dk2eituhsjbg0"]
+
+[ext_resource type="Script" uid="uid://m7afopfojmo3" path="res://Entities/Spawners/Spawner.cs" id="1_4kfwm"]
+
+[node name="Spawner" type="Node2D" unique_id=346530814]
+script = ExtResource("1_4kfwm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=748088805]

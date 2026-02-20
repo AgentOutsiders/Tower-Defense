@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bqshfpoiyraa6"]
+
+[ext_resource type="Script" uid="uid://blpdv6fun3pao" path="res://Entities/Enemies/Enemy.cs" id="1_da0hj"]
+[ext_resource type="Texture2D" uid="uid://dg4j5njksytto" path="res://Assets/Sprites/icon.png" id="2_fln2h"]
+
+[node name="Enemy" type="PathFollow2D" unique_id=353818546]
+loop = false
+script = ExtResource("1_da0hj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=14360649]
+texture = ExtResource("2_fln2h")
