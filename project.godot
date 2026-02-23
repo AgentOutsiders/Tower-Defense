@@ -13,7 +13,6 @@ config_version=5
 config/name="Tower Defense"
 config/description="Enter an interesting project description here!"
 config/features=PackedStringArray("4.6", "C#")
-config/icon="res://icon.png"
 
 [dotnet]
 

@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dk2eituhsjbg0" path="res://Entities/Spawners/Spawner.tscn" id="1_5eb86"]
 [ext_resource type="PackedScene" uid="uid://bqshfpoiyraa6" path="res://Entities/Enemies/Enemy.tscn" id="2_s26qo"]
+[ext_resource type="PackedScene" uid="uid://mimps5o6gpi6" path="res://Entities/Towers/Tower.tscn" id="3_4gv5v"]
+[ext_resource type="Resource" uid="uid://bbmo7mncbit4w" path="res://Entities/Towers/Data/TowerTest.tres" id="4_46hyp"]
 
 [sub_resource type="Curve2D" id="Curve2D_sw380"]
 _data = {
@@ -18,3 +20,7 @@ curve = SubResource("Curve2D_sw380")
 position = Vector2(94, 265)
 EnemyScene = ExtResource("2_s26qo")
 ConnectedPath = NodePath("../Path")
+
+[node name="Tower" parent="." unique_id=598522491 instance=ExtResource("3_4gv5v")]
+position = Vector2(443, 305)
+Data = ExtResource("4_46hyp")
