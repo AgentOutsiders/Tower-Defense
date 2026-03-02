@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cx10a1hg5dxw7"]
+
+[ext_resource type="Script" uid="uid://b8bk24use6gmm" path="res://Entities/Enemies/EnemyData.cs" id="1_pl32c"]
+[ext_resource type="Texture2D" uid="uid://dg4j5njksytto" path="res://Assets/Sprites/icon.png" id="1_s1chr"]
+
+[resource]
+script = ExtResource("1_pl32c")
+Sprite = ExtResource("1_s1chr")
+Speed = 150.0
+Health = 102
+metadata/_custom_type_script = "uid://b8bk24use6gmm"

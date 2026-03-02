@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://blpdv6fun3pao" path="res://Entities/Enemies/Enemy.cs" id="1_da0hj"]
 [ext_resource type="Texture2D" uid="uid://dg4j5njksytto" path="res://Assets/Sprites/icon.png" id="2_fln2h"]
+[ext_resource type="Resource" uid="uid://cx10a1hg5dxw7" path="res://Entities/Enemies/Data/EnemyTest.tres" id="2_yxp7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_da0hj"]
 size = Vector2(64, 64)
@@ -9,6 +10,7 @@ size = Vector2(64, 64)
 [node name="Enemy" type="PathFollow2D" unique_id=353818546]
 loop = false
 script = ExtResource("1_da0hj")
+Data = ExtResource("2_yxp7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=14360649]
 modulate = Color(1, 0, 0, 1)
