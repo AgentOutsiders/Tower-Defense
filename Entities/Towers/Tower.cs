@@ -8,8 +8,7 @@ public partial class Tower : Node2D
 	[Export]
 	public TowerData Data;
 
-	private int Damage;
-
+	private int _damage;
 	private Timer _fireTimer;
     private Area2D _attackRangeArea;
 	private CollisionShape2D _attackRangeShape;
@@ -44,14 +43,13 @@ public partial class Tower : Node2D
 		}
 		_sprite.Texture = Data.Sprite;
 		_fireTimer.WaitTime = Data.FireRate;
-		Damage = Data.Damage;
+		_damage = Data.Damage;
 	}
 
 	private void OnEnemyEntered(Area2D area)
 	{
 		if (area.GetParent() is Enemy)
 		{
-			GD.Print("Enemy entered range: " + area);
 			_enemiesInRange.Add(area);
 		}
 	}
@@ -60,14 +58,12 @@ public partial class Tower : Node2D
     {
         if (_enemiesInRange.Contains(area))
         {
-			GD.Print("Enemy exited range: " + area);
             _enemiesInRange.Remove(area);
         }
     }
 
 	private void OnFireTimerTimeout()
 	{
-		GD.Print("Fire timer timeout. Checking for enemies in range...");
 		_enemiesInRange.RemoveAll(enemy => !IsInstanceValid(enemy));
 
 		if (_enemiesInRange.Count > 0)
@@ -92,5 +88,6 @@ public partial class Tower : Node2D
 	private void Shoot(Area2D target)
 	{
 		GD.Print("Shooting at " + target);
+		target.GetParent<Enemy>().TakeDamage(_damage);
 	}
 }

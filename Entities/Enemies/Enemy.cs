@@ -12,12 +12,12 @@ public partial class Enemy : PathFollow2D
 	[Export]
 	public EnemyData Data;
 
-	private Sprite2D Sprite;
+	private Sprite2D _sprite;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Sprite = GetNode<Sprite2D>("Sprite2D");
+		_sprite = GetNode<Sprite2D>("Sprite2D");
 		ApplyData();
 	}
 
@@ -36,6 +36,23 @@ public partial class Enemy : PathFollow2D
 	{
 		Speed = Data.Speed;
 		Health = Data.Health;
-		Sprite.Texture = Data.Sprite;
+		_sprite.Texture = Data.Sprite;
 	}
+
+	public void TakeDamage(int damage)
+	{
+		Health -= damage;
+		if (Health <= 0)
+		{
+			Die();
+		}
+	}
+
+	private void Die()
+	{
+		GD.Print("Enemy died: " + this);
+		QueueFree();
+	}
+
+
 }

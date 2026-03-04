@@ -6,4 +6,6 @@
 [resource]
 script = ExtResource("1_qjglj")
 Sprite = ExtResource("1_juuam")
+Range = 400.0
+Damage = 45
 metadata/_custom_type_script = "uid://vq7d8qg7b3og"
