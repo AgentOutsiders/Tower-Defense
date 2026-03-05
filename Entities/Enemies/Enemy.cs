@@ -50,6 +50,11 @@ public partial class Enemy : PathFollow2D
 
 	private void Die()
 	{
+		if (Data.Effects != null)
+        {
+            foreach (var effect in Data.Effects)
+                effect.OnDeath(this);
+        }
 		GD.Print("Enemy died: " + this);
 		QueueFree();
 	}
