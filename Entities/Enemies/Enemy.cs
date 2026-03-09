@@ -58,6 +58,4 @@ public partial class Enemy : PathFollow2D
 		GD.Print("Enemy died: " + this);
 		QueueFree();
 	}
-
-
 }

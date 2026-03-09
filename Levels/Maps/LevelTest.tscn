@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://ep13tl8c6dtn"]
+[gd_scene format=4 uid="uid://ep13tl8c6dtn"]
 
 [ext_resource type="PackedScene" uid="uid://dk2eituhsjbg0" path="res://Entities/Spawners/Spawner.tscn" id="1_5eb86"]
+[ext_resource type="Script" uid="uid://d1hiqv0pqkwfl" path="res://Levels/PlacementSystem.cs" id="1_46hyp"]
 [ext_resource type="PackedScene" uid="uid://bqshfpoiyraa6" path="res://Entities/Enemies/Enemy.tscn" id="2_s26qo"]
-[ext_resource type="PackedScene" uid="uid://mimps5o6gpi6" path="res://Entities/Towers/Tower.tscn" id="3_4gv5v"]
+[ext_resource type="Texture2D" uid="uid://bb1gqspqggnes" path="res://Assets/Sprites/PutableSprite.png" id="5_nrlhy"]
 
 [sub_resource type="Curve2D" id="Curve2D_sw380"]
 _data = {
@@ -10,7 +11,17 @@ _data = {
 }
 point_count = 10
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsmjg"]
+texture = ExtResource("5_nrlhy")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_r0cau"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_xsmjg")
+
 [node name="Level" type="Node2D" unique_id=1614416625]
+script = ExtResource("1_46hyp")
 
 [node name="Path" type="Path2D" parent="." unique_id=2064399698]
 curve = SubResource("Curve2D_sw380")
@@ -20,5 +31,7 @@ position = Vector2(94, 265)
 EnemyScene = ExtResource("2_s26qo")
 ConnectedPath = NodePath("../Path")
 
-[node name="Tower" parent="." unique_id=598522491 instance=ExtResource("3_4gv5v")]
-position = Vector2(443, 305)
+[node name="PlacementGrid" type="TileMapLayer" parent="." unique_id=181903912]
+tile_map_data = PackedByteArray("AAAVABcAAAAAAAAAAAARABcAAAAAAAAAAAAVABsAAAAAAAAAAAAXABsAAAAAAAAAAAANABcAAAAAAAAAAAAJABcAAAAAAAAAAAAFABsAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_r0cau")
+rendering_quadrant_size = 64
