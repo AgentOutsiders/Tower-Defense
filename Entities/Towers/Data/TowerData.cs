@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [GlobalClass] 
-public abstract partial class TowerData : Resource
+public partial class TowerData : Resource
 {
 	[Export]
 	public Texture2D Sprite;
