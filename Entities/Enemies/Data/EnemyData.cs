@@ -14,5 +14,5 @@ public partial class EnemyData : Resource
     public int Health = 100;
     
     [Export]
-    public Godot.Collections.Array<EnemyEffect> Effects = new Godot.Collections.Array<EnemyEffect>();
+    public Godot.Collections.Array<EnemyEffect> Effects = new Godot.Collections.Array<EnemyEffect>(); // Array of EnemyEffects to call their effects methods
 }

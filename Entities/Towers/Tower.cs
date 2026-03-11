@@ -64,13 +64,15 @@ public partial class Tower : Node2D
 
 	private void OnFireTimerTimeout()
 	{
-		_enemiesInRange.RemoveAll(enemy => !IsInstanceValid(enemy) || enemy.IsQueuedForDeletion());
+		_enemiesInRange.RemoveAll(enemy => !IsInstanceValid(enemy) || enemy.IsQueuedForDeletion()); // If the enemy is no longer valid or queued for deletion, remove it from the list
 
 		if (_enemiesInRange.Count > 0)
 		{
-			GD.Print("Enemies in range: " + _enemiesInRange.Count);
+			// Initialize var to sort the enemies in progress order
 			Area2D target = _enemiesInRange[0];
 			float maxProgress = _enemiesInRange[0].GetParent<Enemy>().ProgressRatio;
+
+			// Find the enemy with the highest progress ratio
 			foreach (Area2D area in _enemiesInRange)
 			{
 				Enemy enemy = area.GetParent<Enemy>();
@@ -87,7 +89,6 @@ public partial class Tower : Node2D
 
 	private void Shoot(Area2D target)
 	{
-		GD.Print("Shooting at " + target);
 		target.GetParent<Enemy>().TakeDamage(_damage);
 	}
 }

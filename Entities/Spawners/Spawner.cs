@@ -12,24 +12,14 @@ public partial class Spawner : Node2D
 	[Export]
 	public float SpawnInterval = 2.0f;
 
-	private float _timer = 0.0f;
+	private Timer _spawnTimer;
 
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		_timer += (float)delta;
-		if (_timer >= SpawnInterval)
-		{
-			_timer = 0.0f;
-			SpawnEnemy();
-		}
-	}
+    public override void _Ready()
+    {
+        _spawnTimer = GetNode<Timer>("SpawnTimer");
+		_spawnTimer.Timeout += SpawnEnemy;
+    }
 
 	private void SpawnEnemy()
 	{

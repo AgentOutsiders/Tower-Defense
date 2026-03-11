@@ -20,8 +20,10 @@ public partial class Enemy : PathFollow2D
 	public override void _Ready()
 	{
 		_sprite = GetNode<Sprite2D>("Sprite2D");
+
 		ApplyData();
-		if (Data.Effects != null)
+
+		if (Data.Effects != null) // Calls the OnSpawn method for each effect
         {
             foreach (var effect in Data.Effects)
                 effect.OnSpawn(this);
@@ -38,7 +40,7 @@ public partial class Enemy : PathFollow2D
 			QueueFree();
 		}
 
-		if (Data.Effects != null)
+		if (Data.Effects != null) // Calls the OnProcess method for each effect
         {
             foreach (var effect in Data.Effects)
                 effect.OnProcess(this, delta);
@@ -54,7 +56,7 @@ public partial class Enemy : PathFollow2D
 
 	public void TakeDamage(int damage)
 	{
-		if (_isDead)
+		if (_isDead) // If the enemy is already dead but still in the queue to be freed
 		{
 			return;
 		}
@@ -69,7 +71,7 @@ public partial class Enemy : PathFollow2D
 
 	private void Die()
 	{
-		if (Data.Effects != null)
+		if (Data.Effects != null) // Calls the OnDeath method for each effect
         {
             foreach (var effect in Data.Effects)
                 effect.OnDeath(this);

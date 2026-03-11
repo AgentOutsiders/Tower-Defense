@@ -7,7 +7,7 @@ public partial class PlacementSystem : Node2D
 
     public PackedScene TowerScene;
 
-
+    
 	public override void _Ready()
 	{
 		PlacementGrid = GetNode<TileMapLayer>("PlacementGrid");
@@ -20,9 +20,9 @@ public partial class PlacementSystem : Node2D
         {
             Vector2 mousePosition = GetGlobalMousePosition();
 
-            mousePosition = PlacementGrid.ToLocal(mousePosition);
+            mousePosition = PlacementGrid.ToLocal(mousePosition); // Transform global mouse position to local coordinates of the PlacementGrid
 
-            Vector2I gridPosition = PlacementGrid.LocalToMap(mousePosition);
+            Vector2I gridPosition = PlacementGrid.LocalToMap(mousePosition); // Transform local mouse position to grid coordinates (Vector2I for integer grid positions)
 
             Vector2I atlasCoords = PlacementGrid.GetCellAtlasCoords(gridPosition);
             
@@ -43,11 +43,11 @@ public partial class PlacementSystem : Node2D
         
 
         Vector2 localPos = PlacementGrid.MapToLocal(gridPosition);
-        tower.GlobalPosition = localPos;
+        tower.GlobalPosition = PlacementGrid.ToGlobal(localPos);
 
         AddChild(tower);
 
-        PlacementGrid.SetCell(gridPosition, -1);
+        PlacementGrid.SetCell(gridPosition, -1); // remove the tile from the placement grid
         
         GD.Print("Tower placed successfully at grid coordinates: " + gridPosition);
     }

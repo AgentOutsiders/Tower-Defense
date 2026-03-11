@@ -9,3 +9,7 @@ script = ExtResource("1_4kfwm")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=748088805]
 modulate = Color(0.9098039, 0, 1, 1)
 texture = ExtResource("2_sa1eq")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=542246228]
+wait_time = 2.0
+autostart = true
