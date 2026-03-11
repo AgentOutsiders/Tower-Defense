@@ -3,7 +3,7 @@ using System;
 
 public partial class PlacementSystem : Node2D
 {
-	    public TileMapLayer PlacementGrid; 
+	public TileMapLayer PlacementGrid; 
 
     public PackedScene TowerScene;
 
@@ -20,6 +20,7 @@ public partial class PlacementSystem : Node2D
         {
             Vector2 mousePosition = GetGlobalMousePosition();
 
+            mousePosition = PlacementGrid.ToLocal(mousePosition);
 
             Vector2I gridPosition = PlacementGrid.LocalToMap(mousePosition);
 

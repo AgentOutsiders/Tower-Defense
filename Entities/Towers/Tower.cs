@@ -64,7 +64,7 @@ public partial class Tower : Node2D
 
 	private void OnFireTimerTimeout()
 	{
-		_enemiesInRange.RemoveAll(enemy => !IsInstanceValid(enemy));
+		_enemiesInRange.RemoveAll(enemy => !IsInstanceValid(enemy) || enemy.IsQueuedForDeletion());
 
 		if (_enemiesInRange.Count > 0)
 		{

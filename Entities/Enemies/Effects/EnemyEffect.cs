@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [GlobalClass]
-public partial class EnemyEffect : Resource
+public abstract partial class EnemyEffect : Resource
 {
     public virtual void OnSpawn(Enemy enemy) { }
 
