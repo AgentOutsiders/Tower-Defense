@@ -4,13 +4,11 @@ using System;
 public partial class Enemy : PathFollow2D
 {
 	[Export]
+	public EnemyData Data;
+	
 	public float Speed = 100.0f;
 
-	[Export]
 	public int Health = 100;
-
-	[Export]
-	public EnemyData Data;
 
 	private Sprite2D _sprite;
 
@@ -76,7 +74,6 @@ public partial class Enemy : PathFollow2D
             foreach (var effect in Data.Effects)
                 effect.OnDeath(this);
         }
-		GD.Print("Enemy died: " + this);
 		QueueFree();
 	}
 }

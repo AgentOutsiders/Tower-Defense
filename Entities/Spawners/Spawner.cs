@@ -18,6 +18,7 @@ public partial class Spawner : Node2D
     public override void _Ready()
     {
         _spawnTimer = GetNode<Timer>("SpawnTimer");
+		_spawnTimer.WaitTime = SpawnInterval;
 		_spawnTimer.Timeout += SpawnEnemy;
     }
 
