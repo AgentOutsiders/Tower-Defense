@@ -9,9 +9,6 @@
 script = ExtResource("1_rm2cn")
 Data = ExtResource("2_pfuda")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=964928887]
-modulate = Color(0, 1, 0, 1)
-
 [node name="AttackRange" type="Area2D" parent="." unique_id=1932685057]
 collision_layer = 2
 collision_mask = 3
@@ -20,3 +17,5 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_pfuda")
 
 [node name="FireTimer" type="Timer" parent="." unique_id=389030522]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1687659187]

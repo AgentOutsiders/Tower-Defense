@@ -12,14 +12,14 @@ public partial class Tower : Node2D
 	private Timer _fireTimer;
     private Area2D _attackRangeArea;
 	private CollisionShape2D _attackRangeShape;
-	private Sprite2D _sprite;
+	private AnimatedSprite2D _sprite;
 
 	private List<Enemy> _enemiesInRange = new List<Enemy>();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_sprite = GetNode<Sprite2D>("Sprite2D");
+		_sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_fireTimer = GetNode<Timer>("FireTimer");
 		_attackRangeArea = GetNode<Area2D>("AttackRange");
 		_attackRangeShape = _attackRangeArea.GetNode<CollisionShape2D>("CollisionShape2D");
@@ -41,7 +41,7 @@ public partial class Tower : Node2D
 		{
 			circleShape.Radius = Data.Range;
 		}
-		_sprite.Texture = Data.Sprite;
+		_sprite.SpriteFrames = Data.Sprite;
 		_fireTimer.WaitTime = Data.FireRate;
 		_damage = Data.Damage;
 	}

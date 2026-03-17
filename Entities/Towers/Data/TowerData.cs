@@ -5,7 +5,7 @@ using System;
 public partial class TowerData : Resource
 {
 	[Export]
-	public Texture2D Sprite;
+	public SpriteFrames Sprite;
 
 	[Export]
 	public float Range;

@@ -1,9 +1,8 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cx10a1hg5dxw7"]
 
-[ext_resource type="Texture2D" uid="uid://dg4j5njksytto" path="res://Assets/Sprites/icon.png" id="1_s1chr"]
-[ext_resource type="Script" uid="uid://c0cq05yrkpm4f" path="res://Entities/Enemies/Effects/EnemyEffect.cs" id="1_vg526"]
 [ext_resource type="Script" uid="uid://b0n3jt1rdr3hc" path="res://Entities/Enemies/Effects/DeathEffect1.cs" id="2_0b36u"]
 [ext_resource type="Script" uid="uid://dpkllgghoesd2" path="res://Entities/Enemies/Effects/DeathEffect2.cs" id="3_n5oa1"]
+[ext_resource type="Texture2D" uid="uid://b4bcxwr1jwat2" path="res://Assets/Sprites/Enemies/SpriteAngel.png" id="3_ubghj"]
 [ext_resource type="Script" uid="uid://b8bk24use6gmm" path="res://Entities/Enemies/Data/EnemyData.cs" id="5_0b36u"]
 
 [sub_resource type="Resource" id="Resource_alaj4"]
@@ -16,8 +15,8 @@ metadata/_custom_type_script = "uid://dpkllgghoesd2"
 
 [resource]
 script = ExtResource("5_0b36u")
-Sprite = ExtResource("1_s1chr")
+Sprite = ExtResource("3_ubghj")
 Speed = 150.0
 Health = 102
-Effects = Array[ExtResource("1_vg526")]([SubResource("Resource_alaj4"), SubResource("Resource_nc3wr")])
+Effects = [SubResource("Resource_alaj4"), SubResource("Resource_nc3wr")]
 metadata/_custom_type_script = "uid://b8bk24use6gmm"
