@@ -14,7 +14,7 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
-*.csproj.old
+*.csproj.old*
 
 # VS Code specific ignores
 .vscode/settings.json

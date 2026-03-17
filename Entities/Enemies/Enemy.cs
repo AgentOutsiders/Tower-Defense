@@ -8,7 +8,7 @@ public partial class Enemy : PathFollow2D
 	
 	public float Speed = 100.0f;
 
-	public int Health = 100;
+	private int _health = 100;
 
 	private Sprite2D _sprite;
 
@@ -48,7 +48,7 @@ public partial class Enemy : PathFollow2D
 	private void ApplyData()
 	{
 		Speed = Data.Speed;
-		Health = Data.Health;
+		_health = Data.Health;
 		_sprite.Texture = Data.Sprite;
 	}
 
@@ -59,8 +59,8 @@ public partial class Enemy : PathFollow2D
 			return;
 		}
 			
-		Health -= damage;
-		if (Health <= 0)
+		_health -= damage;
+		if (_health <= 0)
 		{
 			_isDead = true;
 			Die();
