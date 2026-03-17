@@ -17,3 +17,8 @@ config/features=PackedStringArray("4.6", "C#")
 [dotnet]
 
 project/assembly_name="Tower Defense"
+
+[layer_names]
+
+2d_physics/layer_1="Enemy"
+2d_physics/layer_2="Tower"

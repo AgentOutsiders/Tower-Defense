@@ -14,7 +14,7 @@ public partial class Tower : Node2D
 	private CollisionShape2D _attackRangeShape;
 	private Sprite2D _sprite;
 
-	private List<Area2D> _enemiesInRange = new List<Area2D>();
+	private List<Enemy> _enemiesInRange = new List<Enemy>();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -48,19 +48,19 @@ public partial class Tower : Node2D
 
 	private void OnEnemyEntered(Area2D area)
 	{
-		if (area.GetParent() is Enemy)
+		if (area.GetParent() is Enemy enemy)
 		{
-			_enemiesInRange.Add(area);
+			_enemiesInRange.Add(enemy);
 		}
 	}
 
 	private void OnEnemyExited(Area2D area)
-    {
-        if (_enemiesInRange.Contains(area))
-        {
-            _enemiesInRange.Remove(area);
-        }
-    }
+	{
+		if (area.GetParent() is Enemy enemy)
+		{
+			_enemiesInRange.Remove(enemy);
+		}
+	}
 
 	private void OnFireTimerTimeout()
 	{
@@ -68,27 +68,25 @@ public partial class Tower : Node2D
 
 		if (_enemiesInRange.Count > 0)
 		{
-			// Initialize var to sort the enemies in progress order
-			Area2D target = _enemiesInRange[0];
-			float maxProgress = _enemiesInRange[0].GetParent<Enemy>().ProgressRatio;
+			// Initialize var to find the enemies in progress order
+			Enemy target = _enemiesInRange[0];
+			float maxProgress = target.ProgressRatio;
 
 			// Find the enemy with the highest progress ratio
-			foreach (Area2D area in _enemiesInRange)
+			foreach (Enemy enemy in _enemiesInRange)
 			{
-				Enemy enemy = area.GetParent<Enemy>();
-
 				if (enemy.ProgressRatio > maxProgress)
 				{
 					maxProgress = enemy.ProgressRatio;
-					target = area;
+					target = enemy;
 				}
 			}
 			Shoot(target);
 		}
 	}
 
-	private void Shoot(Area2D target)
+	private void Shoot(Enemy target)
 	{
-		target.GetParent<Enemy>().TakeDamage(_damage);
+		target.TakeDamage(_damage);
 	}
 }

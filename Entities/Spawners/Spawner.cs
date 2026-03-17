@@ -10,10 +10,11 @@ public partial class Spawner : Node2D
 	public Path2D ConnectedPath;
 
 	[Export]
-	public float SpawnInterval = 2.0f;
+	public float SpawnInterval;
 
 	private Timer _spawnTimer;
 
+	private int c = 0;
 
     public override void _Ready()
     {
@@ -26,5 +27,7 @@ public partial class Spawner : Node2D
 	{
 		Enemy newEnemy = EnemyScene.Instantiate<Enemy>();
 		ConnectedPath.AddChild(newEnemy);
+		c++;
+		GD.Print("Spawned enemy " + c);
 	}
 }

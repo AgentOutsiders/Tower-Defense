@@ -8,7 +8,6 @@
 size = Vector2(64, 64)
 
 [node name="Enemy" type="PathFollow2D" unique_id=353818546]
-loop = false
 script = ExtResource("1_da0hj")
 Data = ExtResource("2_yxp7e")
 
@@ -17,6 +16,7 @@ modulate = Color(1, 0, 0, 1)
 texture = ExtResource("2_fln2h")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=969154971]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1419888934]
 shape = SubResource("RectangleShape2D_da0hj")
