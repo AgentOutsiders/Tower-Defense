@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bqshfpoiyraa6"]
 
 [ext_resource type="Script" uid="uid://blpdv6fun3pao" path="res://Entities/Enemies/Enemy.cs" id="1_da0hj"]
-[ext_resource type="Texture2D" uid="uid://dg4j5njksytto" path="res://Assets/Sprites/icon.png" id="2_fln2h"]
 [ext_resource type="Resource" uid="uid://cx10a1hg5dxw7" path="res://Entities/Enemies/Data/EnemyTest.tres" id="2_yxp7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_da0hj"]
@@ -13,11 +12,10 @@ loop = false
 script = ExtResource("1_da0hj")
 Data = ExtResource("2_yxp7e")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=14360649]
-texture = ExtResource("2_fln2h")
-
 [node name="Area2D" type="Area2D" parent="." unique_id=969154971]
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1419888934]
 shape = SubResource("RectangleShape2D_da0hj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=868592017]

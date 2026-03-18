@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://tkv174v2ix6g"]
+
+[ext_resource type="Script" uid="uid://b8bk24use6gmm" path="res://Entities/Enemies/Data/EnemyData.cs" id="1_ghc2a"]
+
+[resource]
+script = ExtResource("1_ghc2a")
+Speed = 500.0
+Health = 1000
+Effects = null
+metadata/_custom_type_script = "uid://b8bk24use6gmm"

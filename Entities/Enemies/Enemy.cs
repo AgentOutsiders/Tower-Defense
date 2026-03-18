@@ -10,14 +10,14 @@ public partial class Enemy : PathFollow2D
 
 	private int _health = 100;
 
-	private Sprite2D _sprite;
+	private AnimatedSprite2D _sprite;
 
 	private bool _isDead = false;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_sprite = GetNode<Sprite2D>("Sprite2D");
+		_sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
 		ApplyData();
 
@@ -26,6 +26,8 @@ public partial class Enemy : PathFollow2D
             foreach (var effect in Data.Effects)
                 effect.OnSpawn(this);
         }
+
+		_sprite.Play("default");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,7 +51,7 @@ public partial class Enemy : PathFollow2D
 	{
 		Speed = Data.Speed;
 		_health = Data.Health;
-		_sprite.Texture = Data.Sprite;
+		_sprite.SpriteFrames = Data.Sprite;
 	}
 
 	public void TakeDamage(int damage)

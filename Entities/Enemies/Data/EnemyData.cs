@@ -5,7 +5,7 @@ using System;
 public partial class EnemyData : Resource
 {
     [Export]
-	public Texture2D Sprite;
+	public SpriteFrames Sprite;
 
     [Export]
     public float Speed = 100.0f;
