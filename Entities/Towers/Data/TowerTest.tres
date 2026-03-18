@@ -1,12 +1,33 @@
 [gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://bbmo7mncbit4w"]
 
+[ext_resource type="Texture2D" uid="uid://chcoj028wofhy" path="res://Assets/Sprites/Towers/SpriteTree.png" id="1_juuam"]
 [ext_resource type="Script" uid="uid://vq7d8qg7b3og" path="res://Entities/Towers/Data/TowerData.cs" id="2_juuam"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qjglj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivlxl"]
+atlas = ExtResource("1_juuam")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga3v2"]
+atlas = ExtResource("1_juuam")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0arg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivlxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga3v2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [resource]
 script = ExtResource("2_juuam")
-Sprite = SubResource("SpriteFrames_qjglj")
+Sprite = SubResource("SpriteFrames_v0arg")
 Range = 400.0
 FireRate = 1.0
 Damage = 45

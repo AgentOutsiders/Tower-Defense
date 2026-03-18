@@ -3,12 +3,75 @@
 [ext_resource type="Script" uid="uid://m7afopfojmo3" path="res://Entities/Spawners/Spawner.cs" id="1_4kfwm"]
 [ext_resource type="Texture2D" uid="uid://5em3mf7w3g8g" path="res://Assets/Sprites/anneaux.png" id="2_sa1eq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8byj6"]
+atlas = ExtResource("2_sa1eq")
+region = Rect2(0, 0, 194, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8jm5"]
+atlas = ExtResource("2_sa1eq")
+region = Rect2(194, 0, 194, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ksj5"]
+atlas = ExtResource("2_sa1eq")
+region = Rect2(388, 0, 194, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osrti"]
+atlas = ExtResource("2_sa1eq")
+region = Rect2(582, 0, 194, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmhh6"]
+atlas = ExtResource("2_sa1eq")
+region = Rect2(776, 0, 194, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijyao"]
+atlas = ExtResource("2_sa1eq")
+region = Rect2(970, 0, 194, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa1eq"]
+atlas = ExtResource("2_sa1eq")
+region = Rect2(0, 0, 194, 181)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjb0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8byj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8jm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ksj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osrti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmhh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijyao")
+}],
+"loop": false,
+"name": &"Spawn",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa1eq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Spawner" type="Node2D" unique_id=346530814]
 script = ExtResource("1_4kfwm")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=748088805]
-texture = ExtResource("2_sa1eq")
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=542246228]
 wait_time = 2.0
 autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=581465154]
+sprite_frames = SubResource("SpriteFrames_rjb0r")
+animation = &"Spawn"

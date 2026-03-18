@@ -31,6 +31,8 @@ public partial class Tower : Node2D
 
 		_attackRangeArea.AreaEntered += OnEnemyEntered;
         _attackRangeArea.AreaExited += OnEnemyExited;
+
+		_sprite.Play("default");
 	}
 
 
