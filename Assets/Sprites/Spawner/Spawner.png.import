@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5em3mf7w3g8g"
-path="res://.godot/imported/anneaux.png-57ad1849fd99ce529003318c45df8922.ctex"
+path="res://.godot/imported/Spawner.png-2c144d0a419608b3ca570213e9fcee1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/anneaux.png"
-dest_files=["res://.godot/imported/anneaux.png-57ad1849fd99ce529003318c45df8922.ctex"]
+source_file="res://Assets/Sprites/Spawner/Spawner.png"
+dest_files=["res://.godot/imported/Spawner.png-2c144d0a419608b3ca570213e9fcee1e.ctex"]
 
 [params]
 
