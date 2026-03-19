@@ -89,6 +89,20 @@ public partial class Tower : Node2D
 
 	private void Shoot(Enemy target)
 	{
-		target.TakeDamage(_damage);
+		if (Data.AttackVisual != null)
+		{
+			Data.AttackVisual.Play(this, target, Data.AttackSprite, () => 
+			{
+				if (IsInstanceValid(target) && !target.IsQueuedForDeletion())
+				{
+					target.TakeDamage(_damage);
+				}
+			});
+		}
+		
+		else
+		{
+			target.TakeDamage(_damage);
+		}
 	}
 }

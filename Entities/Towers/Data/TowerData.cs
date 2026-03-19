@@ -8,6 +8,9 @@ public partial class TowerData : Resource
 	public SpriteFrames Sprite;
 
 	[Export]
+	public SpriteFrames AttackSprite;
+
+	[Export]
 	public float Range;
     
 	[Export]
@@ -15,4 +18,7 @@ public partial class TowerData : Resource
     
 	[Export]
 	public int Damage;
+
+	[Export]
+	public AttackVisual AttackVisual;
 }
