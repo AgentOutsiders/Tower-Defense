@@ -279,6 +279,7 @@ animations = [{
 
 [resource]
 script = ExtResource("2_juuam")
+TowerName = "TowerTest"
 Sprite = SubResource("SpriteFrames_v0arg")
 AttackSprite = SubResource("SpriteFrames_juuam")
 Range = 400.0

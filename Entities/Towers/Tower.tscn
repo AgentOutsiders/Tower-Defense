@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mimps5o6gpi6"]
 
 [ext_resource type="Script" uid="uid://qislsgkdt3xr" path="res://Entities/Towers/Tower.cs" id="1_rm2cn"]
-[ext_resource type="Resource" uid="uid://bbmo7mncbit4w" path="res://Entities/Towers/Data/TowerTest.tres" id="2_pfuda"]
+[ext_resource type="Resource" uid="uid://bbmo7mncbit4w" path="res://Entities/Towers/Data/Forgotten/TowerTest.tres" id="2_pfuda"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pfuda"]
 
