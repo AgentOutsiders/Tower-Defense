@@ -1,0 +1,57 @@
+[gd_scene format=4 uid="uid://ep13tl8c6dtn"]
+
+[ext_resource type="Script" uid="uid://d1hiqv0pqkwfl" path="res://Levels/PlacementSystem.cs" id="1_fja0k"]
+[ext_resource type="PackedScene" uid="uid://dk2eituhsjbg0" path="res://Entities/Spawners/Spawner.tscn" id="2_4j8f3"]
+[ext_resource type="PackedScene" uid="uid://bqshfpoiyraa6" path="res://Entities/Enemies/Enemy.tscn" id="3_twnqt"]
+[ext_resource type="Texture2D" uid="uid://bb1gqspqggnes" path="res://Assets/Sprites/PutableSprite.png" id="4_hojs5"]
+[ext_resource type="PackedScene" uid="uid://d5qjd4awdxy7" path="res://UI/Shop/ShopManager.tscn" id="5_dyphs"]
+[ext_resource type="Script" uid="uid://vq7d8qg7b3og" path="res://Entities/Towers/Data/TowerData.cs" id="6_kra1b"]
+[ext_resource type="Resource" uid="uid://bbmo7mncbit4w" path="res://Entities/Towers/Data/Forgotten/TowerTestForgotten.tres" id="7_uf3xj"]
+[ext_resource type="Resource" uid="uid://mubms8fnqfyp" path="res://Entities/Towers/Data/Whispered/TowerTestWhispered.tres" id="8_vn2kh"]
+[ext_resource type="Resource" uid="uid://ccj1xvr1mou6a" path="res://Entities/Towers/Data/Historic/TowerTestHistoric.tres" id="9_lvaro"]
+[ext_resource type="Resource" uid="uid://cjbmxjsthb0ab" path="res://Entities/Towers/Data/Mythic/TowerTestMythic.tres" id="10_1nc7q"]
+[ext_resource type="Script" uid="uid://d3a8fcunsox5x" path="res://Levels/Camera2d.cs" id="11_4j8f3"]
+
+[sub_resource type="Curve2D" id="Curve2D_sw380"]
+bake_interval = 33.44
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 95, 265, 0, 0, 0, 0, 684, 271, 0, 0, 0, 0, 694, 176, 0, 0, 0, 0, 772, 172, 0, 0, 0, 0, 772, 321, 0, 0, 0, 0, 880, 317, 0, 0, 0, 0, 871, 262, 0, 0, 0, 0, 934, 266, 0, 0, 0, 0, 997, 264)
+}
+point_count = 9
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsmjg"]
+texture = ExtResource("4_hojs5")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_r0cau"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_xsmjg")
+
+[node name="Level" type="Node2D" unique_id=1614416625]
+y_sort_enabled = true
+script = ExtResource("1_fja0k")
+
+[node name="Path" type="Path2D" parent="." unique_id=2064399698]
+curve = SubResource("Curve2D_sw380")
+
+[node name="Spawner" parent="." unique_id=346530814 node_paths=PackedStringArray("ConnectedPath") instance=ExtResource("2_4j8f3")]
+position = Vector2(94, 265)
+EnemyScene = ExtResource("3_twnqt")
+ConnectedPath = NodePath("../Path")
+SpawnInterval = 2.0
+
+[node name="PlacementGrid" type="TileMapLayer" parent="." unique_id=181903912]
+tile_map_data = PackedByteArray("AAAVABcAAAAAAAAAAAARABcAAAAAAAAAAAAVABsAAAAAAAAAAAAXABsAAAAAAAAAAAANABcAAAAAAAAAAAAJABcAAAAAAAAAAAAFABsAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_r0cau")
+rendering_quadrant_size = 64
+
+[node name="ShopManager" parent="." unique_id=709498846 instance=ExtResource("5_dyphs")]
+ForgottenTowers = Array[ExtResource("6_kra1b")]([ExtResource("7_uf3xj")])
+WhisperedTowers = Array[ExtResource("6_kra1b")]([ExtResource("8_vn2kh")])
+HistoricTowers = Array[ExtResource("6_kra1b")]([ExtResource("9_lvaro")])
+MythicTowers = Array[ExtResource("6_kra1b")]([ExtResource("10_1nc7q")])
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=365747681 node_paths=PackedStringArray("MapLayer")]
+script = ExtResource("11_4j8f3")
+MapLayer = NodePath("../PlacementGrid")

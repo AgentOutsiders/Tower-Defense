@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d5qjd4awdxy7"]
+
+[ext_resource type="Script" uid="uid://bju8njq10tlib" path="res://UI/Shop/ShopManager.cs" id="1_g5ehq"]
+
+[node name="ShopManager" type="CanvasLayer" unique_id=709498846]
+script = ExtResource("1_g5ehq")

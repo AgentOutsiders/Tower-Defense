@@ -4,9 +4,7 @@ using System.Collections.Generic;
 
 public partial class Tower : Node2D
 {
-
-	[Export]
-	public TowerData Data;
+	[Export] public TowerData Data;
 
 	private int _damage;
 	private Timer _fireTimer;

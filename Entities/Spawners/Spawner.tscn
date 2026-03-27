@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://m7afopfojmo3" path="res://Entities/Spawners/Spawner.cs" id="1_4kfwm"]
 [ext_resource type="Texture2D" uid="uid://5em3mf7w3g8g" path="res://Assets/Sprites/Spawner/Spawner.png" id="2_sa1eq"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8byj6"]
 atlas = ExtResource("2_sa1eq")
 region = Rect2(0, 0, 194, 181)
@@ -70,7 +69,6 @@ animations = [{
 script = ExtResource("1_4kfwm")
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=542246228]
-wait_time = 2.0
 autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=581465154]

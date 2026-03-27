@@ -3,14 +3,11 @@ using System;
 
 public partial class Spawner : Node2D
 {
-	[Export]
-	public PackedScene EnemyScene;
+	[Export] public PackedScene EnemyScene;
 
-	[Export]
-	public Path2D ConnectedPath;
+	[Export] public Path2D ConnectedPath;
 
-	[Export]
-	public float SpawnInterval;
+	[Export] public float SpawnInterval;
 
 	private Timer _spawnTimer;
 
