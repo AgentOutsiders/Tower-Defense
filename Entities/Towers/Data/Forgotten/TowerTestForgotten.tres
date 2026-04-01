@@ -3,7 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://c5gwkqw6cmqlx" path="res://Assets/Sprites/Towers/SpriteTreeAttack.png" id="1_ga3v2"]
 [ext_resource type="Script" uid="uid://8xr01cl16p16" path="res://Entities/Towers/Attacks/Visual/InstantAttackVisual.cs" id="1_ivlxl"]
 [ext_resource type="Texture2D" uid="uid://chcoj028wofhy" path="res://Assets/Sprites/Towers/SpriteTree.png" id="1_juuam"]
+[ext_resource type="Script" uid="uid://bnxy3ml3t31ug" path="res://Entities/Towers/Attacks/Effect/SlowEffect.cs" id="1_pcrdl"]
 [ext_resource type="Script" uid="uid://vq7d8qg7b3og" path="res://Entities/Towers/Data/TowerData.cs" id="2_juuam"]
+
+[sub_resource type="Resource" id="Resource_iaust"]
+script = ExtResource("1_pcrdl")
+SpeedMultiplier = 0.1
+metadata/_custom_type_script = "uid://bnxy3ml3t31ug"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0arg"]
 atlas = ExtResource("1_ga3v2")
@@ -286,4 +292,5 @@ Range = 400.0
 FireRate = 1.0
 Damage = 45
 AttackVisual = SubResource("Resource_ga3v2")
+AttackEffects = Array[Object]([SubResource("Resource_iaust")])
 metadata/_custom_type_script = "uid://vq7d8qg7b3og"

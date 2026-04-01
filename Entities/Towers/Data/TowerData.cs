@@ -29,4 +29,6 @@ public partial class TowerData : Resource
 	[Export] public int Damage;
 
 	[Export] public AttackVisual AttackVisual;
+
+	[Export] public AttackEffect[] AttackEffects;
 }

@@ -287,4 +287,5 @@ Range = 400.0
 FireRate = 1.0
 Damage = 45
 AttackVisual = SubResource("Resource_ga3v2")
+AttackEffects = null
 metadata/_custom_type_script = "uid://vq7d8qg7b3og"

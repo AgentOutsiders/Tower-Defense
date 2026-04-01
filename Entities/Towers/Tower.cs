@@ -94,6 +94,7 @@ public partial class Tower : Node2D
 				if (IsInstanceValid(target) && !target.IsQueuedForDeletion())
 				{
 					target.TakeDamage(_damage);
+					ApplyTowerEffects(target);
 				}
 			});
 		}
@@ -101,6 +102,18 @@ public partial class Tower : Node2D
 		else
 		{
 			target.TakeDamage(_damage);
+			ApplyTowerEffects(target);
+		}
+	}
+
+	private void ApplyTowerEffects(Enemy target)
+	{
+		if (Data.AttackEffects != null)
+		{
+			foreach (var effect in Data.AttackEffects)
+			{
+				target.AddStatusEffect(effect.CreateActiveEffect(target));
+			}
 		}
 	}
 }

@@ -4,6 +4,8 @@ using System;
 public partial class Enemy : PathFollow2D
 {
 	[Export] public EnemyData Data;
+
+	private System.Collections.Generic.List<ActiveStatusEffect> _activeEffects = new System.Collections.Generic.List<ActiveStatusEffect>();
 	
 	public float Speed = 100.0f;
 
@@ -37,6 +39,19 @@ public partial class Enemy : PathFollow2D
 		if (ProgressRatio >= 1.0f)
 		{
 			QueueFree();
+		}
+
+		for (int i = _activeEffects.Count - 1; i >= 0; i--)
+		{
+			var effect = _activeEffects[i];
+			effect.OnProcess(delta);
+			effect.TimeLeft -= (float)delta;
+
+			if (effect.IsFinished)
+			{
+				effect.OnRemove();
+				_activeEffects.RemoveAt(i);
+			}
 		}
 
 		if (Data.Effects != null) // Calls the OnProcess method for each effect
@@ -76,5 +91,11 @@ public partial class Enemy : PathFollow2D
                 effect.OnDeath(this);
         }
 		QueueFree();
+	}
+
+	public void AddStatusEffect(ActiveStatusEffect effect)
+	{
+		_activeEffects.Add(effect);
+		effect.OnApply();
 	}
 }
