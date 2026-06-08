@@ -21,4 +21,4 @@ Since this is a development repository, you will need the Godot Engine installed
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/AgentOutsiders/tower-defense.git](https://github.com/AgentOutsiders/tower-defense.git)
+   git clone https://github.com/AgentOutsiders/tower-defense.git
